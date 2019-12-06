@@ -3,6 +3,27 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Dojo Survey</h1>
 </div>
+
+<form action="result" method="POST">
+    <h4>Name:</h4>
+        <input type="string" name="Name"><br>
+    <h4>Location:</h4> 
+        <select type="string" name="Location">
+            <option value="bellevue">Bellevue</option>
+            <option value="sanjose">SanJose</option>
+            <option value="tulsa">Tulsa</option>
+        </select>
+    <h4>Favorite Language: </h4>
+        <select type="string" name="Language">
+                <option value="python">Python</option>
+                <option value="mean">Mean</option>
+                <option value="c#">C#</option>
+            </select>
+        </select>
+    <h4>Comments: </h4>
+        <textarea type="string" name="Comment">Your Comments Here...</textarea>
+    <button type="submit">Submit</button>
+
+</form>

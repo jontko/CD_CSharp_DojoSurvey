@@ -11,6 +11,14 @@ namespace DojoSurvey.Controllers
 {
     public class HomeController : Controller
     {
+
+        [HttpPost("result")]
+        public IActionResult FormResult(string Name, string Location, string Language, string Comment)
+            {
+                ViewBag.DoJoResults = new Dictionary<string,string>{["Name"]=Name, ["Location"]=Location, ["Language"]=Language, ["Comment"]=Comment};//<type of key,type of value>
+                return View("Result");
+            }
+        
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)

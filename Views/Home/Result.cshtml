@@ -1,0 +1,14 @@
+@{
+    ViewData["Title"] = "Results";
+}
+
+@{
+    foreach(var item in ViewBag.DoJoResults)
+    {
+        <h3>@item.Key</h3> @item.Value
+
+    }
+
+
+}
+
