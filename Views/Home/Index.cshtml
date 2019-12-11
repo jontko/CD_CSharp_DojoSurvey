@@ -1,4 +1,6 @@
-﻿@{
+﻿@model FormInfo
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -6,24 +8,32 @@
     <h1 class="display-4">Dojo Survey</h1>
 </div>
 
-<form action="result" method="POST">
+<form  asp-action="FormResult" method="POST">
+    <span asp-validation-for="Name"></span>    
     <h4>Name:</h4>
-        <input type="string" name="Name"><br>
+    <input class="Form-Control" asp-for="Name"><br>
+     
+    <span asp-validation-for="Location"></span>
     <h4>Location:</h4> 
-        <select type="string" name="Location">
-            <option value="bellevue">Bellevue</option>
-            <option value="sanjose">SanJose</option>
-            <option value="tulsa">Tulsa</option>
-        </select>
+    <select class="Form-Control" asp-for="Location">
+        <option value="bellevue">Bellevue</option>
+        <option value="sanjose">SanJose</option>
+        <option value="tulsa">Tulsa</option>
+    </select>
+
+    <span asp-validation-for="Language"></span>
     <h4>Favorite Language: </h4>
-        <select type="string" name="Language">
-                <option value="python">Python</option>
-                <option value="mean">Mean</option>
-                <option value="c#">C#</option>
-            </select>
+    <select class="Form-Control" asp-for="Language">
+            <option value="python">Python</option>
+            <option value="mean">Mean</option>
+            <option value="c#">C#</option>
         </select>
+    </select>
+
+    <span asp-validation-for="Comment"></span>
     <h4>Comments: </h4>
-        <textarea type="string" name="Comment">Your Comments Here...</textarea>
-    <button type="submit">Submit</button>
+    <textarea class="Form-Control" asp-for="Comment">Your Comments Here...</textarea>
+
+    <button asp-for="submit">Submit</button>
 
 </form>

@@ -12,23 +12,32 @@ namespace DojoSurvey.Controllers
     public class HomeController : Controller
     {
 
+        [HttpGet("")]
+        public IActionResult Index()
+        {
+            return View();
+        }
+
         [HttpPost("result")]
-        public IActionResult FormResult(string Name, string Location, string Language, string Comment)
+                                    // (Type of data or class ____ Name it)
+        public IActionResult FormResult(FormInfo data)
             {
-                ViewBag.DoJoResults = new Dictionary<string,string>{["Name"]=Name, ["Location"]=Location, ["Language"]=Language, ["Comment"]=Comment};//<type of key,type of value>
-                return View("Result");
+                if(ModelState.IsValid)//ModelSlate.IsValid is a built in entity framework utility
+                {
+                    return View("Result", data);// (page where results are renderd, what we are passing through)
+                }
+                else
+                {
+                    return View("Index");
+                }
             }
         
+
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
-        }
-
-        public IActionResult Index()
-        {
-            return View();
         }
 
         public IActionResult Privacy()

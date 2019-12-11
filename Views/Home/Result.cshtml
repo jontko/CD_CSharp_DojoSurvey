@@ -1,14 +1,20 @@
+@model FormInfo 
+
 @{
     ViewData["Title"] = "Results";
 }
 
 @{
-    foreach(var item in ViewBag.DoJoResults)
-    {
-        <h3>@item.Key</h3> @item.Value
+ <p>Name</p>
+ <p>@Model.Name</p><br>
 
-    }
+ <p>Location</p>
+ <p>@Model.Location</p><br>
+ 
+ <p>Language</p>
+ <p>@Model.Language</p><br>
 
-
+ <p>Comments</p>
+ <p>@Model.Comment</p><br>
 }
 
